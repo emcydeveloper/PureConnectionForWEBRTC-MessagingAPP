@@ -3,8 +3,39 @@ document.getElementById("clientA").addEventListener("click", ClientA);
 async function ClientA() {
   //Creating PC-A RTCP Connection
   const peerConnectionA = new RTCPeerConnection({
-    iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
-  });
+      iceServers: [
+        { urls: "stun:stun.l.google.com:19302" },
+        { urls: "stun:stun1.l.google.com:19302" },
+        { urls: "stun:stun2.l.google.com:19302" },
+        { urls: "stun:stun3.l.google.com:19302" },
+        { urls: "stun:stun4.l.google.com:19302" },
+        {
+          url: "turn:numb.viagenie.ca",
+          credential: "muazkh",
+          username: "webrtc@live.com",
+        },
+        {
+          url: "turn:192.158.29.39:3478?transport=udp",
+          credential: "JZEOEt2V3Qb0y27GRntt2u2PAYA=",
+          username: "28224511:1379330808",
+        },
+        {
+          url: "turn:192.158.29.39:3478?transport=tcp",
+          credential: "JZEOEt2V3Qb0y27GRntt2u2PAYA=",
+          username: "28224511:1379330808",
+        },
+        {
+          url: "turn:turn.bistri.com:80",
+          credential: "homeo",
+          username: "homeo",
+        },
+        {
+          url: "turn:turn.anyfirewall.com:443?transport=tcp",
+          credential: "webrtc",
+          username: "webrtc",
+        },
+      ],
+    });
 
   console.log("offer");
 
@@ -26,8 +57,39 @@ async function ClientA() {
 
   //Creating PC-B RTCP Connection
   const peerConnectionB = new RTCPeerConnection({
-    iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
-  });
+      iceServers: [
+        { urls: "stun:stun.l.google.com:19302" },
+        { urls: "stun:stun1.l.google.com:19302" },
+        { urls: "stun:stun2.l.google.com:19302" },
+        { urls: "stun:stun3.l.google.com:19302" },
+        { urls: "stun:stun4.l.google.com:19302" },
+        {
+          url: "turn:numb.viagenie.ca",
+          credential: "muazkh",
+          username: "webrtc@live.com",
+        },
+        {
+          url: "turn:192.158.29.39:3478?transport=udp",
+          credential: "JZEOEt2V3Qb0y27GRntt2u2PAYA=",
+          username: "28224511:1379330808",
+        },
+        {
+          url: "turn:192.158.29.39:3478?transport=tcp",
+          credential: "JZEOEt2V3Qb0y27GRntt2u2PAYA=",
+          username: "28224511:1379330808",
+        },
+        {
+          url: "turn:turn.bistri.com:80",
+          credential: "homeo",
+          username: "homeo",
+        },
+        {
+          url: "turn:turn.anyfirewall.com:443?transport=tcp",
+          credential: "webrtc",
+          username: "webrtc",
+        },
+      ],
+    });
 
   //Setting PC-A offer to PC-B
   await peerConnectionB.setRemoteDescription(offer);
